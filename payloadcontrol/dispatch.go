@@ -9,6 +9,7 @@ type Dispatcher struct {
 
 func (d *Dispatcher) Push(payload Payload) {
 	job := Job{Payload: payload}
+	// almost won't block here ,a goroutine is always reading from this channel
 	d.jobQueue <- job
 }
 

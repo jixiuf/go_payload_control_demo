@@ -1,0 +1,7 @@
+# -*- coding:utf-8 -*-
+如何限流的一种实现方式 类似于把请求队列化 防止请求过多创建大量工作goroutine同时工作压垮db等
+
+
+使用一个两级channel系统，一个用来存放任务队列，另一个用来控制处理任务队列的并发量。
+灵感于:
+https://medium.com/smsjunk/handling-1-million-requests-per-minute-with-golang-f70ac505fcaa
